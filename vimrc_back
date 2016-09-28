@@ -53,6 +53,7 @@ filetype off                  " required
  Plugin 'scrooloose/syntastic'
  Plugin 'Shougo/vimproc'
  Plugin 'Shougo/neocomplete.vim'
+ Plugin 'Shougo/neoinclude.vim'
  Plugin 'Shougo/context_filetype.vim'
 
  " All of your Plugins must be added before the following line

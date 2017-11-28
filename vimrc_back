@@ -1,0 +1,52 @@
+" 256 color support in VIM
+set t_Co=256
+" " Remove old mode indicator
+set noshowmode
+" " Remove weird characters
+set fillchars+=stl:\ ,stlnc:\
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'scrooloose/syntastic'
+Plugin 'Shougo/vimproc'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'Shougo/neoinclude.vim'
+Plugin 'Shougo/context_filetype.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+set laststatus=2                                       " To always show airline
+let g:airline_powerline_fonts = 1      " To load fonts into the vimrc
+let g:airline_detect_modified=1        " Detects modifications
+let g:airline_detect_paste=1           " Detects paste
+set ttimeoutlen=10                                     " No timeout on leaving airline INSERT
+let g:bufferline_echo=0                        " No automatic echoing
+call vundle#end()
+filetype plugin indent on
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+autocmd StdinReadPre * let s:std_in=1
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd VimEnter * NERDTree
+map <C-n> <plug>NERDTreeTabsToggle<CR>
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:neocomplete#enable_at_startup=1   " Autostart Neocomplete on startup
+let g:neocomplete#max_list=10           " Only show 10 occurences max
+set tabstop=4
+set number
+set shiftwidth=4
+set background=dark
+let g:neocomplete#enable_at_startup = 1
